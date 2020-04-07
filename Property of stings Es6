@@ -1,0 +1,19 @@
+// strings
+//${} ``
+const firstName = 'Mohamed';
+const lastName = "Ahmed";
+const age = 22;
+console.log(`my name is ${firstName} ${lastName} and i am ${age} `);
+
+//properties
+
+// startsWith, includes, endsWith, repeat
+const fullName = `${firstName} ${lastName}`;
+var prop1 = fullName.startsWith('moh');
+console.log(prop1);
+var prop2 = fullName.endsWith('ed');
+console.log(prop2);
+var prop3 = fullName.includes(' ah');
+console.log(prop3);
+var prop4 = fullName.repeat(4); //4 times
+console.log(prop4);
