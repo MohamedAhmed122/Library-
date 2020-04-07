@@ -1,0 +1,30 @@
+
+// spread operator
+// calculate 4 numbers 2 solutions
+//1
+const calcFournums = (a, b, c, d) => {
+    return (a + b + c + d);
+}
+const sum1 = calcFournums(12, 22, 11, 44);
+console.log(sum1);
+const numbers = [12, 22, 11, 44];
+const sum2 = calcFournums(...numbers);
+
+console.log(sum2);
+
+const family1 = ['mohamed', 'ahmed', 'mostafa'];
+const family2 = ['Oda', 'mohamed', 'Marcelo'];
+
+const bigFamily = [...family1, 'Khaled', ...family2];
+console.log(bigFamily);
+
+const head = document.querySelector('h1');
+const allBoxes = document.querySelectorAll('.box');
+const all = [head, ...allBoxes];
+Array.from(all).forEach(cur => cur.style.color = 'purple');
+
+isFullAge6 = (limit, ...years) => {
+    const now = new Date().getFullYear();
+    years.forEach(el => console.log(now - el >= limit));
+}
+isFullAge6(21, 1998, 2000, 2013, 1984);
