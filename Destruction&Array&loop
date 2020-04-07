@@ -1,0 +1,48 @@
+//Destructuring ES6
+
+const [name, age] = ['Mohamed', 22];
+console.log(`${name} ${age}`);
+const object = {
+    Name: 'mohamed',
+    Age: 22
+};
+const {
+    Name,
+    Age
+} = object;
+console.log(Name + ' ' + Age)
+
+const calcAgeRetirement = (year) => {
+    const age = new Date().getFullYear() - year;
+    const retirement = 65 - age;
+    return [age, retirement];
+}
+const [ag, retirement] = calcAgeRetirement(1962);
+console.log(`${ag} ${retirement}`);
+
+/********************** */
+// Array anf for Loop 
+// how to convert form list to array
+const boxes = document.querySelectorAll('.box');
+Array.from(boxes).forEach(el => el.style.backgroundColor = 'dodgerblue');
+
+for (const cur of boxes) {
+    if (boxes.className === 'blue') {
+        continue;
+    }
+    cur.textContent = 'changed blue';
+}
+
+
+
+const greenBox = {
+    color: 'green',
+    position: 2,
+    clickME: function () {
+        document.querySelector('.green').addEventListener('click', () => {
+            const str = `i am ${this.color} and my position is ${this.position}`
+            alert(str);
+        })
+    }
+}
+greenBox.clickME();
