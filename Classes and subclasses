@@ -1,0 +1,45 @@
+
+/*****************************/
+// classes ES5
+var Person5 = function (name, yearOfBirth, job) {
+    this.name = name;
+    this.yearOfBirth = yearOfBirth;
+    this.job = job;
+}
+Person5.prototype.calcAge5 = function () {
+    var age = new Date().getFullYear() - this.yearOfBirth;
+    console.log(age);
+}
+var PersonAthlete5 = function (name, yearOfBirth, job, sport, madels) {
+    Person5.call(this, name, yearOfBirth, job)
+    this.sport = sport;
+    this.madels = madels;
+}
+PersonAthlete5.prototype = Object.create(Person5.prototype)
+
+var personAthlete5 = new PersonAthlete5('mohamed', 1998, 'teacher', 'video game', 0);
+console.log(personAthlete5);
+
+///// ES6
+class Person {
+    constructor(name, yearOfBirth, job) {
+        this.name = name;
+        this.yearOfBirth = yearOfBirth;
+        this.job = job;
+    }
+    calcAge() {
+        const age = new Date().getFullYear() - this.yearOfBirth;
+        console.log(age);
+    }
+}
+class Athlete extends Person{
+    constructor(name, yearOfBirth, job,sport, madels) {
+        super(name, yearOfBirth, job)
+        this.sport=sport;
+        this.madels=madels;
+    }
+    wonModel(){
+        this.madels++;
+        console.log(this.madels)
+    }
+}
