@@ -1,0 +1,38 @@
+const first = () => {
+    console.log('here is the first function')
+    second();
+    end();
+}
+const second = () => {
+    setTimeout(() => {
+        console.log('here is the second function')
+    }, 1000)
+
+}
+const end = () => {
+    setTimeout(() => {
+        console.log('ends')
+    }, 2000)
+}
+first();
+const getRecipe = () => {
+    setTimeout(() => {
+        recipeId = [1, 2, 3, 4, 5];
+        console.log(recipeId)
+        setTimeout((id) => {
+            recipe = {
+                title: 'pasata',
+                price: 155
+            };
+            console.log(`${id}: ${recipe.title} cast ${recipe.price}$`)
+            setTimeout((id) => {
+                recipe2 = {
+                    title: 'Pizza chiken mashrom',
+                    price: 125
+                };
+                console.log(`${id}: ${recipe2.title} cast ${recipe2.price}$`)
+            }, 1500, recipeId[3])
+        }, 1500, recipeId[1])
+    }, 1500)
+}
+getRecipe();
