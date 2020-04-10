@@ -1,0 +1,23 @@
+
+const question = new Map();
+question.set('question', 'what is the official name of the latest verison in javascript?');
+
+question.set(1, 'ES5');
+question.set(2, 'ES12');
+question.set(3, 'ES4');
+question.set(4, 'ES6');
+question.set(5, 'ES7');
+question.set(6, 'ES3');
+question.set('correct', 'this is the correct Answer!');
+console.log(question.get(2));
+question.delete(4);
+console.log(question.get(4));
+if (question.has(3)) {
+    console.log('here is 3 ');
+}
+console.log(question.size);
+//question.clear();
+//console.log(question);
+// map
+question.forEach((value, key) =>
+    console.log(`this is ${key} and it is det to${value}`));
