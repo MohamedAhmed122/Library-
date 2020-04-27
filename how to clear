@@ -1,0 +1,10 @@
+// clear inputs
+
+export const clearInput = () => {
+    element.searchInput.value = '';
+}
+// clear results from dom
+export const clearResult = () => {
+    element.searchResultList.innerHTML = '';
+    element.pageResult.innerHTML = '';
+}
