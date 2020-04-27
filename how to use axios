@@ -1,0 +1,48 @@
+import axios from 'axios';
+xport default class Recipe {
+    constructor(id) {
+        this.id = id;
+    }
+    async getRecipe(id) {
+        try {
+
+            const res = await axios(
+                `https://forkify-api.herokuapp.com/api/get?rId=${this.id}`);
+            this.title = res.data.recipe.title;
+            this.author = res.data.recipe.publisher;
+            this.image = res.data.recipe.image_url;
+            this.ingredients = res.data.recipe.ingredients;
+            this.url = res.data.recipe.source_url;
+        } catch (error) {
+            console.log(error)
+            alert('something went wrong :( ')
+        }
+    }
+}
+
+===> index.js
+
+const controlRecipe = async () => {
+    //location means Url
+    const id = window.location.hash.replace('#', '');
+    console.log(id);
+    if (id) {
+        //prepare UI for changes
+
+        //create new recipe object and parse ingredients
+        state.recipe = new Recipe(id);
+
+        try {
+            //get recipe data
+            await state.recipe.getRecipe();
+            state.recipe.parseIndredients();
+
+            // render recipe
+            console.log(state.recipe);
+
+        } catch (error) {
+            alert('Error Processing recipes')
+        }
+
+    }
+}
