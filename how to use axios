@@ -1,48 +1,20 @@
 import axios from 'axios';
-xport default class Recipe {
-    constructor(id) {
-        this.id = id;
+export default class Search {
+    constructor(query) {
+        this.query = query;
     }
-    async getRecipe(id) {
+    async getResult() {
         try {
+            const res = await axios(`https://forkify-api.herokuapp.com/api/search?&q=${this.query}`);
 
-            const res = await axios(
-                `https://forkify-api.herokuapp.com/api/get?rId=${this.id}`);
-            this.title = res.data.recipe.title;
-            this.author = res.data.recipe.publisher;
-            this.image = res.data.recipe.image_url;
-            this.ingredients = res.data.recipe.ingredients;
-            this.url = res.data.recipe.source_url;
+            this.result = res.data.recipes;
+            console.log(this.result)
         } catch (error) {
-            console.log(error)
-            alert('something went wrong :( ')
+            alert('something goes wronk with search fetching')
         }
     }
-}
+}==>index.js
+const s = new Search('pizza');
+console.log(s);
 
-===> index.js
-
-const controlRecipe = async () => {
-    //location means Url
-    const id = window.location.hash.replace('#', '');
-    console.log(id);
-    if (id) {
-        //prepare UI for changes
-
-        //create new recipe object and parse ingredients
-        state.recipe = new Recipe(id);
-
-        try {
-            //get recipe data
-            await state.recipe.getRecipe();
-            state.recipe.parseIndredients();
-
-            // render recipe
-            console.log(state.recipe);
-
-        } catch (error) {
-            alert('Error Processing recipes')
-        }
-
-    }
-}
+s.getResult();
