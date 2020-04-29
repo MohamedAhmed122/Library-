@@ -1,0 +1,23 @@
+ how to install package.jason
+ 
+ npm init ==> then insert data
+ 
+ how to install webPack 
+ npm install webpack --save-dev
+ 
+ how to install webPack-cli
+ npm install webpack-cli --save-dev
+ 
+ how to install live server
+sudo npm install live-serve --g
+
+==> backage.jason
+"dev": "webpack --mode development",
+"build": "webpack --mode production"
+
+npm install babel-core babel-preset-env babel-loader --save-dev
+
+// to use plugin
+"dev": "webpack --mode development",
+"build": "webpack --mode production",
+"start": "webpack-dev-server --mode development --open"
