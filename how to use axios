@@ -18,3 +18,32 @@ const s = new Search('pizza');
 console.log(s);
 
 s.getResult();
+--------------------------------------------------------------------------------------------------------------
+
+import axios from 'axios';
+
+export default class Recipe {
+    constructor(id) {
+        this.id = id;
+    }
+    async getRecipe() {
+        try {
+            const res = await axios(`https://forkify-api.herokuapp.com/api/get?rId=${this.id}`);
+
+            //after Consling ............
+            this.title = res.data.recipe.title;
+            this.id = res.data.recipe.recipe_id;
+            this.image = res.data.recipe.image_url;
+            this.source = res.data.recipe.source_url;
+            this.publisher = res.data.recipe.publisher;
+            this.ingredients = res.data.recipe.ingredients;
+            this.publisherUrl = res.data.recipe.publisher_url;
+
+        } catch (error) {
+            alert('something goes wrong with recipe fetching')
+        }
+    }
+}
+const r = new Recipe(46956);
+r.getRecipe();
+console.log(r);
