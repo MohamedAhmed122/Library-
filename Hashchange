@@ -1,0 +1,9 @@
+const controlRecipe = () => {
+    // location means url
+    const id = window.location.hash.replace('#', '');
+    console.log(id);
+}
+  
+  
+  to get the id from the url 
+window.addEventListener('hashchange', controlRecipe)
